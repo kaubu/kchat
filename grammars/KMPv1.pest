@@ -1,0 +1,12 @@
+uuid = { (LETTER | NUMBER | "-")+ }
+value = { (LETTER | NUMBER)+ }
+unicode_value = { (LETTER | MARK | NUMBER | PUNCTUATION | SYMBOL | SEPARATOR | OTHER)+ }
+
+protocol = { "PROTOCOL: " ~ value }
+directive = { "DIRECTIVE: " ~ value }
+encryption = { "ENCRYPTION: " ~ value }
+user_id = { "USER-ID: " ~ uuid }
+message_id = { "MESSAGE-ID: " ~ uuid }
+message = { "MESSAGE: " ~ unicode_value }
+
+line = { (protocol | directive | encryption | user_id | message_id | message) }
